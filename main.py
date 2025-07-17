@@ -8,3 +8,5 @@ blur = cv2.GaussianBlur(gray, (5, 5), 0)
 edges = cv2.Canny(blur, 50, 150)
 
 contours, _ = cv2.findContours(edges.copy, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+largest_contours = max(contours, key = cv2.contourArea)
