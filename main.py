@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-import matplotlib.pyplot as lt
+import matplotlib.pyplot as plt
 image = cv2.imread('screw.png')
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
@@ -20,3 +20,11 @@ output = image.copy()
 cv2.circle(output, leftmost, 5, (0, 255, 0), -1)
 cv2.circle(output, rightmost, 5 (0, 0, 255), -1)
 cv2.line(output, leftmost, rightmost, (255, 0, 0), 2)
+
+print(f'Length of the screw (pixel): {screw_length:.2f}')
+print(f'Rightmost point coordinate: {rightmost}')
+
+plt.imshow(cv2.cvtColor(output, cv2.COLOR_BGR2RGB))
+plt.title('Measurement On The Screw')
+plt.axis('off')
+plt.show()
