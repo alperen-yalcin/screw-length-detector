@@ -13,3 +13,5 @@ largest_contour = max(contours, key = cv2.contourArea)
 
 leftmost = tuple(largest_contour[largest_contour[:, :, 0].argmin()][0])
 rightmost= tuple(largest_contour[largest_contour[:, :, 0].argmax()][0])
+
+screw_length = np.linalg.norm(np.array(rightmost) - np.array(leftmost))
