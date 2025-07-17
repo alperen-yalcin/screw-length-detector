@@ -10,3 +10,6 @@ edges = cv2.Canny(blur, 50, 150)
 contours, _ = cv2.findContours(edges.copy, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
 largest_contours = max(contours, key = cv2.contourArea)
+
+leftmost = tuple(largest_contour[largest_contour[:, :, 0].argmin()][0])
+rightmost= tuple(largest_contour[largest_contour[:, :, 0].argmin()][0])
