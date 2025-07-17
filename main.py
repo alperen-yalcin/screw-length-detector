@@ -7,7 +7,7 @@ gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 blur = cv2.GaussianBlur(gray, (5, 5), 0)
 edges = cv2.Canny(blur, 50, 150)
 
-contours, _ = cv2.findContours(edges.copy, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+contours, _ = cv2.findContours(edges.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
 largest_contour = max(contours, key = cv2.contourArea)
 
@@ -18,7 +18,7 @@ screw_length = np.linalg.norm(np.array(rightmost) - np.array(leftmost))
 
 output = image.copy()
 cv2.circle(output, leftmost, 5, (0, 255, 0), -1)
-cv2.circle(output, rightmost, 5 (0, 0, 255), -1)
+cv2.circle(output, rightmost, 5, (0, 0, 255), -1)
 cv2.line(output, leftmost, rightmost, (255, 0, 0), 2)
 
 print(f'Length of the screw (pixel): {screw_length:.2f}')
